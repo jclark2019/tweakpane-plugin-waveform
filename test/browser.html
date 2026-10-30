@@ -26,7 +26,7 @@
       margin-left: auto;
       margin-right: auto;
     }
-    
+
     .text {
       font-family: Fira Code, sans-serif;
       color: white;
@@ -71,8 +71,8 @@
     </div>
   </div>
   <script type="module">
-    import * as Tweakpane from '../node_modules/tweakpane/dist/tweakpane.js';
-		import * as TweakpaneWaveformPlugin from '../dist/tweakpane-plugin-waveform.js';
+    import * as Tweakpane from '/node_modules/tweakpane/dist/tweakpane.js';
+		import * as TweakpaneWaveformPlugin from '/node_modules/tweakpane-plugin-waveform/dist/tweakpane-plugin-waveform.js'
 
     window.ctx = new AudioContext();
     window.anl = ctx.createAnalyser();
@@ -92,7 +92,7 @@
     };
 
     setInterval(() => {
-      if (osc) 
+      if (osc)
         osc.frequency.value = osc.frequency.value > 100 ? 40 : osc.frequency.value + 1;
 
       if (gain) {
@@ -101,7 +101,7 @@
         console.log(gain.gain.value);
       }
     }, 500);
-    
+
     setInterval(() => {
       anl.getByteTimeDomainData(params.webAudioApiAnlBuf);
       pane.refresh();
@@ -177,9 +177,9 @@
       interval: 0,
     })
 
-    const audioToggleBtn = pane.addButton({ 
-      title: "Start Web Audio API" 
-    }).on("click", () => { 
+    const audioToggleBtn = pane.addButton({
+      title: "Start Web Audio API"
+    }).on("click", () => {
       if (osc) {
         osc.stop();
         osc = null;
